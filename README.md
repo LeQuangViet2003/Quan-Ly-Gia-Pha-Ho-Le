@@ -1,16 +1,22 @@
-# React + Vite
+# Quản lý gia phả họ Lê
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ứng dụng giúp quản lý cây gia phả một cách khoa học và sinh động, được tối ưu hóa cho di động. Mọi thay đổi đều được lưu vào cơ sở dữ liệu thực.
 
-Currently, two official plugins are available:
+## 🚀 Chạy Demo Trực Tiếp
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Tự động khởi chạy bằng GitHub Codespaces
+Ấn vào nút bên dưới để GitHub tự tạo một môi trường máy tính ảo và khởi động luôn dự án:
 
-## React Compiler
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/LeQuangViet2003/Quan-Ly-Gia-Pha-Ho-Le)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*Khi mở Codespaces, ứng dụng sẽ chạy lệnh tự động tải mã nguồn, tự build màn hình React, và tự động tạo file dữ liệu mẫu SQLite. Sau đó giao diện sẽ hiển thị ngay trên màn hình trình duyệt của bạn.*
 
-## Expanding the ESLint configuration
+### Triển khai lên Web Hosting (Unified Build)
+Để triển khai thực tế trên mạng (VD: Render):
+1. Giao diện Frontend (`src`) đã được gộp chung để phục vụ tĩnh qua Express (`dist`).
+2. Khi push code lên Render, dùng lệnh Build: `npm install && npm run build` và Lệnh Start: `npm start`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Công nghệ sử dụng
+- **Giao diện:** Vite React, Tailwind CSS
+- **Máy chủ API:** Express, NodeJS
+- **Lưu trữ:** SQLite3 trực tiếp

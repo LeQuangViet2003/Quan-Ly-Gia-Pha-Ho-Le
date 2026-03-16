@@ -117,7 +117,7 @@ export default function App() {
   
   const fetchFamily = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/family?t=${Date.now()}`, { cache: 'no-store' });
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/family?t=${Date.now()}`, { cache: 'no-store' });
       const data = await res.json();
       setFamily(data);
       setLoading(false);
@@ -159,7 +159,7 @@ export default function App() {
   const handleConfirmDelete = async () => {
     if (!deleteConfirm) return;
     try {
-      await fetch(`http://localhost:3000/api/family/${deleteConfirm.id}`, { method: 'DELETE' });
+      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/family/${deleteConfirm.id}`, { method: 'DELETE' });
       setDeleteConfirm(null);
       fetchFamily();
     } catch (err) {
@@ -183,19 +183,19 @@ export default function App() {
     const { mode, form, targetId } = modalData;
     try {
       if (mode === 'EDIT') {
-        await fetch(`http://localhost:3000/api/family/${form.id}`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/family/${form.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(form)
         });
       } else if (mode === 'ADD_CHILD') {
-        await fetch(`http://localhost:3000/api/family`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/family`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ...form, parentId: targetId })
         });
       } else if (mode === 'ADD_SPOUSE') {
-        await fetch(`http://localhost:3000/api/family`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/family`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ...form, spouseId: targetId })

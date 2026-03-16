@@ -1,0 +1,12 @@
+{
+    "name": "Quản lý gia phả họ Lê",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+    "forwardPorts": [3000],
+    "postCreateCommand": "npm install && npm run build",
+    "postStartCommand": "npm run start",
+    "customizations": {
+        "vscode": {
+            "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+        }
+    }
+}

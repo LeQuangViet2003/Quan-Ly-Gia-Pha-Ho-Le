@@ -139,7 +139,15 @@ app.delete('/api/family/:id', (req, res) => {
   });
 });
 
+// Dành cho Production: Phục vụ frontend (React Build)
+const frontendDistPath = path.join(__dirname, 'dist');
+app.use(express.static(frontendDistPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendDistPath, 'index.html'));
+});
+
 // Chạy server
 app.listen(PORT, () => {
-  console.log(`✅ Backend SQLite API đang chạy tại http://localhost:${PORT}`);
+  console.log(`✅ Server đang chạy tại cổng ${PORT}`);
 });
